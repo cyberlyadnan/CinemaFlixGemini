@@ -47,6 +47,7 @@ const FAQSection = () => {
           <button className="w-full md:w-auto text-white px-5 py-3 bg-red-600 hover:bg-red-700 rounded font-semibold">
             Get Started
           </button>
+          
         </div>
       </div>
     </div>

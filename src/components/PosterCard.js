@@ -5,7 +5,7 @@ const PosterCard = ({ imageId }) => {
 
   return (
     <div className=" mr-4 mb-12 ">
-      <img src={imageUrl} alt="Movie Poster" className="min-w-[130px] sm:min-w-[150px] lg:min-w-[180px] w-full h-auto rounded-md cursor-pointer hover:lg:min-w-[160px] hover:sm:min-w-[160px] hover:lg:shadow-white" />
+      <img src={imageUrl} alt="Movie Poster" className="min-w-[130px] sm:min-w-[150px] lg:min-w-[180px] w-full h-auto rounded-md cursor-pointer hover:shadow-white" />
     </div>
   );
 };

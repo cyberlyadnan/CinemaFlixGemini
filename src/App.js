@@ -2,23 +2,24 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Body from "./components/Body";
 import LoginSignUp from "./components/LoginSignUp";
 import Browse from "./components/Browse";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
       element: <Body />,
-      errorElement: <h1>Error To Load</h1>,
+      errorElement: <ErrorPage />,
     },
     {
       path: "/login",
       element: <LoginSignUp />,
-      errorElement: <h1>Error To Load</h1>,
+      errorElement: <ErrorPage />,
     },
     {
       path: "/browse",
       element: <Browse />,
-      errorElement: <h1>Error To Load</h1>,
+      errorElement: <ErrorPage />,
     },
   ]);
 

@@ -1,4 +1,5 @@
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from "react";
 import logo from "../Images/logo.png";
 import { Link, useLocation } from "react-router-dom";
@@ -14,15 +15,14 @@ const Header = ({ showNavLinks, showProfile, signInButton, islogOut, isIcon }) =
   const dispatch = useDispatch();
   const store = useSelector((store) => store.user);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [navDropdownOpen, setNavDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    // Check if device is mobile
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
 
-    // Listen for changes in media query
     const mediaQueryListener = () => {
       setIsMobile(mediaQuery.matches);
     };
@@ -63,6 +63,10 @@ const Header = ({ showNavLinks, showProfile, signInButton, islogOut, isIcon }) =
     setProfileDropdownOpen(!profileDropdownOpen);
   };
 
+  const toggleNavDropdown = () => {
+    setNavDropdownOpen(!navDropdownOpen);
+  };
+
   return (
     <>
       {isIcon && (
@@ -76,63 +80,65 @@ const Header = ({ showNavLinks, showProfile, signInButton, islogOut, isIcon }) =
             />
           </Link>
           <div className="flex items-center space-x-4 relative">
-            {showNavLinks && location.pathname === "/browse" && (isMobile ? (
-              <div className="relative">
-                <button
-                  onClick={toggleProfileDropdown}
-                  className="text-white hover:text-gray-400 focus:outline-none"
-                >
-                </button>
-                {profileDropdownOpen && (
-                  <div className="absolute top-full right-0 bg-gray-800 text-white shadow-lg rounded-md mt-2 py-2 px-2 z-50">
-                    <ul className="space-y-2">
-                      <li>
-                        <Link
-                          to="/"
-                          className="hover:bg-gray-700 block py-2 px-4 rounded-md"
-                        >
-                          Home
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/tv-shows"
-                          className="hover:bg-gray-700 block py-2 px-4 rounded-md"
-                        >
-                          TV Shows
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/movies"
-                          className="hover:bg-gray-700 block py-2 px-4 rounded-md"
-                        >
-                          Movies
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/my-list"
-                          className="hover:bg-gray-700 block py-2 px-4 rounded-md"
-                        >
-                          My List
-                        </Link>
-                      </li>
-                      <li>
-                        <button
-                          onClick={handleSignOut}
-                          className="hover:bg-gray-700 block py-2 px-4 rounded-md"
-                        >
-                          Logout
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <div className="mx-4">
+            {showNavLinks && location.pathname === "/browse" && (
+              isMobile ? (
+                <div className="relative">
+                  <button
+                    onClick={toggleNavDropdown}
+                    className="text-black font-bold hover:text-red-900 focus:outline-none bg-red-600 p-3 rounded-lg"
+                  >
+                    {navDropdownOpen ? <FontAwesomeIcon icon={faChevronUp} />: <FontAwesomeIcon icon={faChevronDown} /> }
+                    
+                  </button>
+                  {navDropdownOpen && (
+                    <div className="absolute top-full right-0 bg-gray-900 text-white shadow-lg rounded-md mt-2 py-2 px-3 z-50">
+                      <ul className="space-y-2">
+                        <li>
+                          <Link
+                            to="/"
+                            className="hover:bg-gray-500 block py-3 px-4 rounded-md "
+                          >
+                            Home
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/tv-shows"
+                            className="hover:bg-gray-700 block py-2 px-4 rounded-md"
+                          >
+                            TV Shows
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/movies"
+                            className="hover:bg-gray-700 block py-2 px-4 rounded-md"
+                          >
+                            Movies
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/my-list"
+                            className="hover:bg-gray-700 block py-2 px-4 rounded-md"
+                          >
+                            My List
+                          </Link>
+                        </li>
+                        <li>
+                          <button
+                            onClick={handleSignOut}
+                            className="hover:bg-gray-700 block py-2 px-4 rounded-md"
+                          >
+                            Logout
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="flex items-center space-x-4">
                   <ul className="flex space-x-4 text-white">
                     <li>
                       <Link to="/" className="hover:text-gray-400">
@@ -161,50 +167,56 @@ const Header = ({ showNavLinks, showProfile, signInButton, islogOut, isIcon }) =
                     </li>
                   </ul>
                 </div>
-              </div>
-            ))}
-            {showProfile && (
-              <div className="relative">
-                <button
-                  onClick={toggleProfileDropdown}
-                  className="flex items-center space-x-2 focus:outline-none"
-                >
-                  <img
-                    src={store ? store.photoURL : demophotoURL}
-                    alt="User Avatar"
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <i className="fas fa-caret-down text-white"></i>
-                </button>
-                {profileDropdownOpen && !isMobile && (
-                  <div className="absolute top-full right-0 bg-gray-800 text-white shadow-lg rounded-md mt-2 py-2 px-4 z-50">
-                    <ul className="space-y-2">
-                      <li>
-                        <button onClick={handleSignOut} className="hover:bg-gray-700 block py-2 px-4 rounded-md w-full text-left">
-                          Logout
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
+              )
             )}
-            {signInButton && (
-              <div>
-                <Link
-                  to="/login"
-                  className="w-20 text-white px-5 bg-red-600 hover:bg-red-700 py-1 rounded font-semibold"
-                >
-                  Sign In
-                </Link>
-              </div>
+            {store?.email ? (
+              showProfile && (
+                <div className="relative">
+                  <button
+                    onClick={toggleProfileDropdown}
+                    className="flex items-center space-x-2 focus:outline-none"
+                  >
+                    <img
+                      src={store.photoURL || demophotoURL}
+                      alt="User Avatar"
+                      className="w-10 h-10 rounded-full"
+                    />
+                    <i className="fas fa-caret-down text-white"></i>
+                  </button>
+                  {profileDropdownOpen && (
+                    <div className="absolute top-full right-0 bg-gray-800 text-white shadow-lg rounded-md mt-2 py-2 px-4 z-50">
+                      <ul className="space-y-2">
+                        <li>
+                          <button
+                            onClick={handleSignOut}
+                            className="hover:bg-gray-700 block py-2 px-4 rounded-md w-full text-left"
+                          >
+                            Logout
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )
+            ) : (
+              signInButton && (
+                <div>
+                  <Link
+                    to="/login"
+                    className="w-20 text-white px-5 bg-red-600 hover:bg-red-700 py-1 rounded font-semibold"
+                  >
+                    Sign In
+                  </Link>
+                </div>
+              )
             )}
           </div>
         </div>
       )}
-      {!isIcon && <div></div>}
     </>
   );
 };
 
 export default Header;
+
