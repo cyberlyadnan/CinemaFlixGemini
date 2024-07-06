@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from "react";
 import logo from "../Images/logo.png";
 import background from "../Images/background.jpg"; // Ensure the path to the background image is correct
@@ -85,15 +86,15 @@ const LoginSignUp = () => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${background})`,
       }}
     >
-      <div className="absolute top-0 left-0 py-4 px-[150px]">
-        <Link to={"/"}> <img src={logo} className="w-[200px]" alt="Netflix Logo" /></Link>
+      <div className="absolute top-0 left-0 py-4 px-4 lg:px-[150px] sm:px-4">
+        <Link to={"/"}> <img src={logo} className="w-32 lg:w-48 sm:w-32" alt="Netflix Logo" /></Link>
       </div>
       <Header showNavLinks={false} showProfile={false} signInButton={false} islogOut={false} isIcon={false}/>
-      <div className="bg-black w-4/12 bg-opacity-75 py-8 px-16 rounded-lg shadow-lg max-w-md mx-auto mt-8 pb-20">
-        <h1 className="text-3xl font-bold mb-6">
+      <div className="bg-black w-4/12 bg-opacity-75 px-6 py-4 g:lpy-8 lg:px-16 rounded-lg shadow-lg w-9/12 lg:max-w-md mx-auto mt-28 lg:mt-8 pb-20">
+        <h1 className="lg:text-3xl text-2xl font-bold lg:mb-6 mb-1">
           {isSignUpForm ? "Sign Up" : "Login"}
         </h1>
-        <p className="text-red-600 py-2 text-xs">
+        <p className="text-red-600 lg:py-2 lg:text-xs text-[10px] mb-3">
           We are currently experiencing issues with email and password login.
           Please use social login as an alternative. We apologize for the
           inconvenience and are working to resolve the issue as soon as
@@ -111,7 +112,7 @@ const LoginSignUp = () => {
                 ref={nameRef}
                 type="text"
                 placeholder="Full Name"
-                className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white p-3 rounded"
+                className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-1 rounded"
               />
             </div>
           )}
@@ -120,7 +121,7 @@ const LoginSignUp = () => {
               ref={emailRef}
               type="email"
               placeholder="Email or mobile number"
-              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white p-3 rounded"
+              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 text-xs rounded"
             />
           </div>
           <div className="mb-4">
@@ -128,22 +129,22 @@ const LoginSignUp = () => {
               ref={passwordRef}
               type="password"
               placeholder="Password"
-              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white p-3 rounded"
+              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 text-xs rounded"
             />
           </div>
-          {errorMessage && <p className="text-red-500 my-2">{errorMessage}</p>}
+          {errorMessage && <p className="text-red-500 lg:my-2 py-1">{errorMessage}</p>}
           <button
             type="submit"
-            className="w-full bg-red-600 hover:bg-red-700 p-2 rounded font-semibold mb-4"
+            className="w-full bg-red-600 hover:bg-red-700 lg:p-2 p-1 rounded font-semibold mb-4"
           >
             {isSignUpForm ? "Sign Up" : "Sign In"}
           </button>
           <button
             type="button"
             onClick={handleSocialLogin}
-            className="w-full flex items-center justify-center bg-blue-600 hover:bg-blue-700 p-2 rounded font-semibold mb-4"
+            className="w-full flex items-center justify-center bg-blue-600 hover:bg-blue-700 lg:p-2 p-1 rounded font-semibold mb-4"
           >
-            <img className="w-6 h-6 mr-2" src={googleicon} alt="Google Icon" />
+            <img className="w-4 h-4 mr-2" src={googleicon} alt="Google Icon" />
             Login with Google
           </button>
           <div className="flex justify-between items-center mb-4">

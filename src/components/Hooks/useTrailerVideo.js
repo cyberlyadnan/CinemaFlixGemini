@@ -62,9 +62,9 @@ const useTrailerVideo = () => {
                 const selectedVideo = nowPlayingMovies[randomVideoIndex];
 
                 if (selectedVideo) {
-                    const apiData = await fetch(`${VIDEO_KEY_FETCH_API}${selectedVideo.id}/videos?`, OPTIONS_TMDB);
+                    const apiData = await fetch(`${VIDEO_KEY_FETCH_API}${selectedVideo.id}/videos?language=en-IN`, OPTIONS_TMDB);
                     const apiDataJson = await apiData.json();
-                    const trailer = apiDataJson?.results.find(result => result.type === "Trailer");
+                    const trailer = apiDataJson?.results?.find(result => result.type === "Trailer");
 
                     if (trailer) {
                         dispatch(addTrailerVideo(trailer));

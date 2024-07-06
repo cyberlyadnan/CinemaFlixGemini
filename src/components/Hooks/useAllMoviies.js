@@ -6,6 +6,7 @@ import { addMoviesPlaylist } from '../../Utils/movieSlice';
 const useAllMovies = () => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.movies)
+  console.log("All movies")
 
   useEffect(() => {
     const apilist = [VIDEO_POPULAR_API, VIDEO_TRENDING_API, VIDEO_UPCOMING_API];
@@ -18,7 +19,8 @@ const useAllMovies = () => {
         
         results.forEach(apiDataJson => {
           dispatch(addMoviesPlaylist(apiDataJson.results));
-        });}
+        });
+      }
       } catch (error) {
         console.error("Error fetching data", error);
       }
