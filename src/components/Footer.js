@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="bg-black text-white py-8 text-center">
             <div className="container mx-auto px-4">
                 <div className="flex flex-wrap justify-between">
-                    <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
+                    <div className="w-full sm:w-1/2 md:w-1/4 mb-4 lg:mb-0">
                         <h4 className="text-lg font-bold mb-4">Company</h4>
                         <ul>
                             <li><Link to="/" className="hover:text-gray-400">About</Link></li>
@@ -16,7 +16,7 @@ const Footer = () => {
                             <li><Link to="/" className="hover:text-gray-400">Privacy</Link></li>
                         </ul>
                     </div>
-                    <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
+                    <div className="w-full sm:w-1/2 md:w-1/4 mb-4 lg:mb-0">
                         <h4 className="text-lg font-bold mb-4">Account</h4>
                         <ul>
                             <li><Link to="/" className="hover:text-gray-400">Account</Link></li>
@@ -25,7 +25,7 @@ const Footer = () => {
                             <li><Link to="/" className="hover:text-gray-400">Speed Test</Link></li>
                         </ul>
                     </div>
-                    <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
+                    <div className="w-full sm:w-1/2 md:w-1/4 mb-4 lg:mb-0">
                         <h4 className="text-lg font-bold mb-4">Media Center</h4>
                         <ul>
                             <li><Link to="/" className="hover:text-gray-400">Help Center</Link></li>
@@ -34,7 +34,7 @@ const Footer = () => {
                             <li><Link to="/" className="hover:text-gray-400">Contact Us</Link></li>
                         </ul>
                     </div>
-                    <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
+                    <div className="w-full sm:w-1/2 md:w-1/4 mb-4 lg:mb-0">
                         <h4 className="text-lg font-bold mb-4">Get in Touch</h4>
                         <ul>
                             <li><Link to="/" className="hover:text-gray-400">Twitter</Link></li>

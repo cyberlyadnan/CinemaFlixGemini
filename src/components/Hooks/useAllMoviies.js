@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { OPTIONS_TMDB, VIDEO_POPULAR_API, VIDEO_TRENDING_API, VIDEO_UPCOMING_API } from '../../Utils/constants';
+import { OPTIONS_TMDB, TV_AIRING_LIST_API, TV_API1, TV_API2, TV_API3, VIDEO_POPULAR_API, VIDEO_TRENDING_API, VIDEO_UPCOMING_API } from '../../Utils/constants';
 import { addMoviesPlaylist } from '../../Utils/movieSlice';
 
 const useAllMovies = () => {
@@ -9,7 +9,7 @@ const useAllMovies = () => {
   console.log("All movies")
 
   useEffect(() => {
-    const apilist = [VIDEO_POPULAR_API, VIDEO_TRENDING_API, VIDEO_UPCOMING_API];
+    const apilist = [VIDEO_POPULAR_API, VIDEO_TRENDING_API, VIDEO_UPCOMING_API,TV_API2, TV_API3,TV_AIRING_LIST_API,TV_API1];
     
     const getData = async () => {
       try {

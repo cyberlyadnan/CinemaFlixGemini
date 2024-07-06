@@ -1,12 +1,10 @@
-import React from 'react'; // Make sure to add a mobile image to your src directory
-
-
+import React from 'react';
 
 const DownloadSection = () => {
   return (
-    <div className="bg-black text-white py-16 px-28 border-b-8 border-gray-700">
+    <div className="bg-black text-white py-16 px-6 md:px-28 border-b-8 border-gray-700">
       <div className="container mx-auto flex flex-col md:flex-row items-center relative">
-        <div className="md:w-1/2 relative">
+        <div className="md:w-1/2 mb-6 md:mb-0 relative">
           <img src={"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"} alt="Mobile" className="w-full max-w-lg mx-auto relative z-10" />
           <div className="absolute inset-0 flex justify-center items-center z-0">
           </div>
@@ -25,3 +23,4 @@ const DownloadSection = () => {
 };
 
 export default DownloadSection;
+

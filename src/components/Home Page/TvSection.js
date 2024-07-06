@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import tvImage from "../../Images/tv.png";
 
 const TvSection = () => {
   return (
-    <div className="bg-black text-white py-16 px-28 border-b-8 border-gray-700">
+    <div className="bg-black text-white py-16 px-6 md:px-28 border-b-8 border-gray-700">
       <div className="container mx-auto flex flex-col md:flex-row items-center relative">
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 mb-6 md:mb-0">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Enjoy on your TV.
           </h2>
@@ -21,14 +21,14 @@ const TvSection = () => {
               autoPlay
               loop
               muted
-              className="w-[400px] h-auto  absolute"
-              style={{ top: '15%', left: '21%' }} // Adjust these values to fit the video inside the TV image
+              className="w-[250px] md:w-[400px] h-auto absolute"
+              style={{ top: '10%', left: '12%' }} // Adjust these values to fit the video inside the TV image
             />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default TvSection
+export default TvSection;

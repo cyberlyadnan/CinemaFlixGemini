@@ -10,7 +10,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
@@ -18,6 +18,7 @@ import Header from "./Header";
 const LoginSignUp = () => {
   const [isSignUpForm, setIsSignUpForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -25,6 +26,13 @@ const LoginSignUp = () => {
   const provider = new GoogleAuthProvider();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const store= useSelector(store=> store.user)
+  console.log("In login page",store)
+  const loggedIn  = auth.currentUser
+  if (loggedIn){
+    navigate("/browse")
+  }
 
   const handleSocialLogin = () => {
     signInWithPopup(auth, provider)
@@ -112,7 +120,7 @@ const LoginSignUp = () => {
                 ref={nameRef}
                 type="text"
                 placeholder="Full Name"
-                className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-1 rounded"
+                className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 rounded"
               />
             </div>
           )}
@@ -121,7 +129,7 @@ const LoginSignUp = () => {
               ref={emailRef}
               type="email"
               placeholder="Email or mobile number"
-              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 text-xs rounded"
+              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2  rounded"
             />
           </div>
           <div className="mb-4">
