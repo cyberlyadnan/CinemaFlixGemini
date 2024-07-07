@@ -6,7 +6,6 @@ import { addMoviesPlaylist } from '../../Utils/movieSlice';
 const useAllMovies = () => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.movies)
-  console.log("All movies")
 
   useEffect(() => {
     const apilist = [VIDEO_POPULAR_API, VIDEO_TRENDING_API, VIDEO_UPCOMING_API,TV_AIRING_LIST_API,TV_API1, TV_API2, TV_API3 ];

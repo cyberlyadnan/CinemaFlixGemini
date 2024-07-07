@@ -25,3 +25,18 @@ export const TV_AIRING_LIST_API = `https://api.themoviedb.org/3/tv/on_the_air?la
 export const TV_API1 = `https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1`
 export const TV_API2 =  `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1`
 export const TV_API3  = `https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1`
+
+export const MOVIE_SEARCH_API = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=`
+
+
+
+export const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent'
+
+export const movieCategories = [
+    "Trending Now",
+    "Popular on Netflix",
+    "Upcoming Releases",
+    "Top Picks for You",
+    "New Releases",
+    "Award-Winning Movies",
+    "Critically Acclaimed"]

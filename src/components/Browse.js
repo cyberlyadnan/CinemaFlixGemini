@@ -19,6 +19,8 @@ const Browse = () => {
     }
   }, [loggedIn, navigate]);
 
+  
+
   return (
     <div className='lg:h-full h-full'>
       <Header showProfile={true} showNavLinks={true} signInButton={false} islogOut={loggedIn} isIcon={true} />

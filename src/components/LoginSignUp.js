@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../Images/logo.png";
 import background from "../Images/background.jpg"; // Ensure the path to the background image is correct
 import googleicon from "../Images/google-icon.png"; // Add the path to your Google icon image
@@ -28,11 +28,14 @@ const LoginSignUp = () => {
   const navigate = useNavigate();
 
   const store= useSelector(store=> store.user)
-  console.log("In login page",store)
-  const loggedIn  = auth.currentUser
-  if (loggedIn){
-    navigate("/browse")
-  }
+  useEffect(()=>{
+    // const loggedIn  = auth.currentUser
+    const loggedIn  = !!store ? true : false
+    if (loggedIn){
+      navigate("/browse")
+    }
+  })
+  
 
   const handleSocialLogin = () => {
     signInWithPopup(auth, provider)
@@ -76,7 +79,6 @@ const LoginSignUp = () => {
           emailRef.current.value,
           passwordRef.current.value
         );
-        console.log("User signed up successfully");
         navigate("/browse"); // Redirect to browse page after successful sign up
       } catch (error) {
         setErrorMessage(error.message);
@@ -120,7 +122,7 @@ const LoginSignUp = () => {
                 ref={nameRef}
                 type="text"
                 placeholder="Full Name"
-                className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 rounded"
+                className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 text-xs rounded"
               />
             </div>
           )}
@@ -129,7 +131,7 @@ const LoginSignUp = () => {
               ref={emailRef}
               type="email"
               placeholder="Email or mobile number"
-              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2  rounded"
+              className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 text-xs rounded"
             />
           </div>
           <div className="mb-4">

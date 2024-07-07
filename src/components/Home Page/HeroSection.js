@@ -8,6 +8,12 @@ const HeroSection = () => {
   const user = useSelector((store) => store.user);
   const loggedIn = !!user;
 
+
+
+  
+
+  
+
   return (
     <div
       className="bg-cover bg-center text-white border-b-8 border-gray-700"
