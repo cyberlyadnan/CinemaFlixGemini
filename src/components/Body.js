@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import HeroSection from './Home Page/HeroSection';
 import DownloadSection from './Home Page/DownloadSection';
 import TvSection from './Home Page/TvSection';

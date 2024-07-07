@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import CategoryList from "./CategoryList";
 import { useSelector } from "react-redux";
 import { movieCategories } from "../Utils/constants";
@@ -8,7 +8,8 @@ const SecondaryContainer = () => {
   const search = useSelector(store=> store.search)
 
   return (
-    <div className="py-4 px-4 sm:px-8 bg-black text-white text-center">
+    <>
+    <div className="py-4 lg:pt-0  px-4 sm:px-8 bg-black text-white text-center">
       <div className="relative z-10">
 
         {search.length > 0 && <CategoryList className="mb-8 lg:mb-20" title={"Search Results"} data={search} />}
@@ -22,6 +23,7 @@ const SecondaryContainer = () => {
           ))}
       </div>
     </div>
+    </>
   );
 };
 

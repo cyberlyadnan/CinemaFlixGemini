@@ -22,7 +22,7 @@ const Browse = () => {
   
 
   return (
-    <div className='lg:h-full h-full'>
+    <div className='lg:h-full h-full bg-black'>
       <Header showProfile={true} showNavLinks={true} signInButton={false} islogOut={loggedIn} isIcon={true} />
       <MainContainer data={videos} className="bg-gradient-to-b from-black via-black to-transparent" />
       <SecondaryContainer />

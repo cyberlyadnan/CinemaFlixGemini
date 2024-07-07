@@ -4,6 +4,7 @@ import { MOVIE_SEARCH_API, OPTIONS_TMDB } from "../../Utils/constants";
 
 const API_KEY = process.env.GEMINI_API_KEY;
 
+
 const useGenerateContent = (searchQuery, triggerSearch) => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
