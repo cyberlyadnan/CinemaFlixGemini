@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MOVIE_SEARCH_API, OPTIONS_TMDB } from "../../Utils/constants";
 
-const API_KEY = process.env.GEMINI_API_KEY;
+// const API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+const API_KEY = "AIzaSyBvC8wnq1EKWWBXbNnbWFssf06np2Kb4JE";
 
 
 const useGenerateContent = (searchQuery, triggerSearch) => {
