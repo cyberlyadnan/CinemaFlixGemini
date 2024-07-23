@@ -26,7 +26,7 @@ const useAllMovies = () => {
     };
 
     getData();
-  }, [dispatch]);
+  }, [dispatch,store.allMovies.length]);
 };
 
 export default useAllMovies;
