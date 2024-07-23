@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  authDomain: "netflixgpt-17f5b.firebaseapp.com",
+  projectId: "netflixgpt-17f5b",
+  storageBucket: "netflixgpt-17f5b.appspot.com",
+  messagingSenderId: "130065774425",
+  appId: "1:130065774425:web:1e05f092ecba.l0-a228623e48",
+  measurementId: "G-QSVQYZMBMQ"
 };
 
 // Initialize Firebase
@@ -18,3 +18,7 @@ const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 export const auth = getAuth();
+
+
+
+
