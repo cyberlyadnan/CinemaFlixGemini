@@ -18,7 +18,7 @@ const MainContainer = ({ data }) => {
   const { key, original_title, overview } = useTrailerVideo(data);
 
   // Call useGenerateContent hook at the top level
-  const { movies, loading, error } = useGenerateContent(searchQuery, triggerSearch);
+  const { movies, loading} = useGenerateContent(searchQuery, triggerSearch);
 
 
   useEffect(() => {
