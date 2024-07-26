@@ -57,7 +57,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -84,6 +84,10 @@ Build the application for production and deploy it to Firebase:
    ```bash
    firebase deploy
    ```
+
+## Live Demo
+
+Check out the live version of CinemaFlixGemini at [https://geminiflix.pages.dev/](https://geminiflix.pages.dev/).
 
 ## Learn More
 
