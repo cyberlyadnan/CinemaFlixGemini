@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import logo from "../Images/logo.png";
 import background from "../Images/background.jpg"; // Ensure the path to the background image is correct
@@ -8,17 +7,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { generateRandomEmail, generateRandomPassword } from "./Hooks/useGenerateRandomPasswordAndEmail";
 
 const LoginSignUp = () => {
   const [isSignUpForm, setIsSignUpForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -27,15 +27,14 @@ const LoginSignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const store= useSelector(store=> store.user)
-  useEffect(()=>{
+  const store = useSelector((store) => store.user);
+  useEffect(() => {
     // const loggedIn  = auth.currentUser
-    const loggedIn  = !!store ? true : false
-    if (loggedIn){
-      navigate("/browse")
+    const loggedIn = !!store ? true : false;
+    if (loggedIn) {
+      navigate("/browse");
     }
-  })
-  
+  });
 
   const handleSocialLogin = () => {
     signInWithPopup(auth, provider)
@@ -86,8 +85,37 @@ const LoginSignUp = () => {
     } else {
       // Login logic
       // Implement login logic here
+      signInWithEmailAndPassword(
+        auth,
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          navigate("/browse");
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
     }
   };
+
+
+  const handleGuest = async () => {
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        generateRandomEmail(),
+        generateRandomPassword()
+      );
+      navigate("/browse"); // Redirect to browse page after successful sign up
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  }
 
   return (
     <div
@@ -97,19 +125,28 @@ const LoginSignUp = () => {
       }}
     >
       <div className="absolute top-0 left-0 py-4 px-4 lg:px-[150px] sm:px-4">
-        <Link to={"/"}> <img src={logo} className="w-32 lg:w-48 sm:w-32" alt="Netflix Logo" /></Link>
+        <Link to={"/"}>
+          {" "}
+          <img src={logo} className="w-32 lg:w-48 sm:w-32" alt="Netflix Logo" />
+        </Link>
       </div>
-      <Header showNavLinks={false} showProfile={false} signInButton={false} islogOut={false} isIcon={false}/>
+      <Header
+        showNavLinks={false}
+        showProfile={false}
+        signInButton={false}
+        islogOut={false}
+        isIcon={false}
+      />
       <div className="bg-black w-4/12 bg-opacity-75 px-6 py-4 g:lpy-8 lg:px-16 rounded-lg shadow-lg w-9/12 lg:max-w-md mx-auto mt-28 lg:mt-8 pb-20">
-        <h1 className="lg:text-3xl text-2xl font-bold lg:mb-6 mb-1">
+        <h1 className="lg:text-3xl text-2xl font-bold lg:mb-6 mb-5">
           {isSignUpForm ? "Sign Up" : "Login"}
         </h1>
-        <p className="text-red-600 lg:py-2 lg:text-xs text-[10px] mb-3">
+        {/* <p className="text-red-600 lg:py-2 lg:text-xs text-[10px] mb-3">
           We are currently experiencing issues with email and password login.
           Please use social login as an alternative. We apologize for the
           inconvenience and are working to resolve the issue as soon as
           possible.
-        </p>
+        </p> */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -142,7 +179,9 @@ const LoginSignUp = () => {
               className="w-full bg-gray-900 bg-opacity-50 border border-gray-600 text-white lg:p-3 p-2 text-xs rounded"
             />
           </div>
-          {errorMessage && <p className="text-red-500 lg:my-2 py-1">{errorMessage}</p>}
+          {errorMessage && (
+            <p className="text-red-500 lg:my-2 py-1">{errorMessage}</p>
+          )}
           <button
             type="submit"
             className="w-full bg-red-600 hover:bg-red-700 lg:p-2 p-1 rounded font-semibold mb-4"
@@ -157,6 +196,13 @@ const LoginSignUp = () => {
             <img className="w-4 h-4 mr-2" src={googleicon} alt="Google Icon" />
             Login with Google
           </button>
+          <div
+          onClick={handleGuest}
+            type="button"
+            className="w-full cursor-pointer text-center bg-red-900 hover:bg-red-700 lg:p-2 p-1 rounded font-semibold mb-4"
+          >
+            Login As Guest
+          </div>
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center cursor-pointer">
               <input

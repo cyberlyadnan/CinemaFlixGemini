@@ -8,7 +8,7 @@ export const OPTIONS_TMDB = {
     }
 };
 
-export const demophotoURL = "https://randomuser.me/api/portraits/men/32.jpg";
+export const demophotoURL = "https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome.png";
 
 export const NOW_PLAYING_MOVIE_API = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-IN&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte=${minDate}&release_date.lte=${maxDate}`;
 
