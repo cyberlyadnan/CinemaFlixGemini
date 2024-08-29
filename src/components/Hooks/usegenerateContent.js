@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MOVIE_SEARCH_API, OPTIONS_TMDB } from "../../Utils/constants";
 
-const API_KEY = "AIzaSyBvC8wnq1EKWWBXbNnbWFssf06np2Kb4JE";
-
 const useGenerateContent = (searchQuery, triggerSearch) => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -17,7 +15,7 @@ const useGenerateContent = (searchQuery, triggerSearch) => {
       setError(null);
 
       try {
-        const genAI = new GoogleGenerativeAI(API_KEY);
+        const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GOOGLE_API_KEY);
 
         const model = genAI.getGenerativeModel({
           model: "gemini-1.5-flash",
