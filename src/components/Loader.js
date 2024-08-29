@@ -10,20 +10,20 @@ const Loader = () => {
       height="26"
     >
       <radialGradient id="a7" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)">
-        <stop offset="0" stop-color="#FFFFFF"></stop>
-        <stop offset=".3" stop-color="#FFFFFF" stop-opacity=".9"></stop>
-        <stop offset=".6" stop-color="#FFFFFF" stop-opacity=".6"></stop>
-        <stop offset=".8" stop-color="#FFFFFF" stop-opacity=".3"></stop>
-        <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop>
+        <stop offset="0" stopColor="#FFFFFF"></stop>
+        <stop offset=".3" stopColor="#FFFFFF" stopOpacity=".9"></stop>
+        <stop offset=".6" stopColor="#FFFFFF" stopOpacity=".6"></stop>
+        <stop offset=".8" stopColor="#FFFFFF" stopOpacity=".3"></stop>
+        <stop offset="1" stopColor="#FFFFFF" stopOpacity="0"></stop>
       </radialGradient>
       <circle
         transform-origin="center"
         fill="none"
         stroke="url(#a7)"
-        stroke-width="16"
-        stroke-linecap="round"
-        stroke-dasharray="200 1000"
-        stroke-dashoffset="0"
+        strokeWidth="16"
+        strokeLinecap="round"
+        strokeDasharray="200 1000"
+        strokeDashoffset="0"
         cx="100"
         cy="100"
         r="70"
@@ -44,8 +44,8 @@ const Loader = () => {
         fill="none"
         opacity=".2"
         stroke="#FFFFFF"
-        stroke-width="16"
-        stroke-linecap="round"
+        strokeWidth="16"
+        strokeLinecap="round"
         cx="100"
         cy="100"
         r="70"

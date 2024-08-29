@@ -8,6 +8,7 @@ const useGenerateContent = (searchQuery, triggerSearch) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_GOOGLE_API_KEY)
     if (!searchQuery || !triggerSearch) return;
 
     const fetchData = async () => {
