@@ -8,7 +8,7 @@ const useGenerateContent = (searchQuery, triggerSearch) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+    console.log(process.env.REACT_APP_GEMINI_API_KEY)
     if (!searchQuery || !triggerSearch) return;
 
     const fetchData = async () => {
@@ -16,7 +16,7 @@ const useGenerateContent = (searchQuery, triggerSearch) => {
       setError(null);
 
       try {
-        const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GOOGLE_API_KEY);
+        const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
 
         const model = genAI.getGenerativeModel({
           model: "gemini-1.5-flash",
