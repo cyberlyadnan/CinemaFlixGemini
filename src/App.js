@@ -3,6 +3,7 @@ import Body from "./components/Body";
 import LoginSignUp from "./components/LoginSignUp";
 import Browse from "./components/Browse";
 import ErrorPage from "./components/ErrorPage";
+import Stream from "./components/Stream";
 
 function App() {
   const routes = createBrowserRouter([
@@ -21,8 +22,12 @@ function App() {
       element: <Browse />,
       errorElement: <ErrorPage />,
     },
+    {
+      path: "/stream/:vidId", // Updated to dynamic route
+      element: <Stream />,
+      errorElement: <ErrorPage />,
+    },
   ]);
-
 
   return (
     <div>

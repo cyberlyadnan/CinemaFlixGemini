@@ -33,12 +33,15 @@ const useGenerateContent = (searchQuery, triggerSearch) => {
 
         const result = await model.generateContent(prompt);
         const text = result.response.candidates[0].content.parts[0].text;
+        console.log("text", text);
 
         // Remove the trailing newline character (\n) if present
         const cleanText = text.replace(/\n$/, "");
         // Parse the JSON string
         const data = JSON.parse(`[${cleanText}]`);
-        const gemini_response = data.map((movie) => movie.movie_title);
+        // const gemini_response = data..map((movie) => movie.movie_title);
+        const gemini_response = data[0].movieList.map((movie) => movie.movie_title);
+
 
         const getMoviesData = async (movieQuery) => {
           const apidata = await fetch(MOVIE_SEARCH_API + movieQuery, OPTIONS_TMDB);

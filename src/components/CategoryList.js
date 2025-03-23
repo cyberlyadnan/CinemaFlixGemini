@@ -7,15 +7,20 @@ const CategoryList = ({ title, data }) => {
       <div className="absolute top-0 left-0 px-3">
         <h1 className="text-2xl font-bold">{title}</h1>
       </div>
+
       <div className="flex overflow-x-auto scroll-smooth hide-scrollbar p-4 pt-12 lg:pt-20">
-        {data?.map((poster) => (poster?.poster_path !== undefined ?
-          <PosterCard key={poster?.id} imageId={poster?.poster_path} />: ""
-        ))}
+        {data?.map((poster) =>
+          poster?.poster_path !== undefined ? (
+            <>
+              <PosterCard key={poster?.id} imageId={poster?.poster_path} />
+            </>
+          ) : (
+            ""
+          )
+        )}
       </div>
     </div>
   );
 };
 
 export default CategoryList;
-
-
