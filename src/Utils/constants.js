@@ -34,7 +34,7 @@ export const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1/mod
 
 export const movieCategories = [
     "Trending Now",
-    "Popular on Netflix",
+    "Popular on FlixTv",
     "Upcoming Releases",
     "Top Picks for You",
     "New Releases",

@@ -127,7 +127,7 @@ const LoginSignUp = () => {
       <div className="absolute top-0 left-0 py-4 px-4 lg:px-[150px] sm:px-4">
         <Link to={"/"}>
           {" "}
-          <img src={logo} className="w-32 lg:w-48 sm:w-32" alt="Netflix Logo" />
+          <img src={logo} className="w-32 lg:w-48 sm:w-32" alt="FlixTv Logo" />
         </Link>
       </div>
       <Header
@@ -230,7 +230,7 @@ const LoginSignUp = () => {
           <p className="text-sm cursor-pointer" onClick={handleClick}>
             {isSignUpForm
               ? "Already have an account? Sign in now."
-              : "New to Netflix? Sign up now."}
+              : "New to FlixTv? Sign up now."}
           </p>
         </div>
         <div className="mt-4 text-xs text-center">

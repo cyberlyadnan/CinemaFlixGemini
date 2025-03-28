@@ -20,7 +20,7 @@ const ErrorPage = () => {
         </p>
         <Link to="/">
           <button className="text-white px-6 py-3 bg-red-600 hover:bg-red-700 rounded font-semibold">
-            Netflix Home
+          FlixTv Home
           </button>
         </Link>
         

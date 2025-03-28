@@ -81,7 +81,7 @@ const Header = ({
           <Link to="/">
             <img
               src={logo}
-              alt="Netflix Logo"
+              alt="FlixTv Logo"
               className="w-36 lg:w-[200px] h-auto sm:w-36 sm:h-auto"
               style={{ filter: "drop-shadow(0 0 0.90rem black)" }}
             />

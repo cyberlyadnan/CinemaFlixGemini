@@ -1,6 +1,6 @@
 # CinemaFlixGemini
 
-CinemaFlixGemini is a Netflix clone integrated with AI features to provide personalized movie recommendations and a secure, responsive user experience. This project highlights my skills in React, Tailwind CSS, Firebase, and AI integration, showcasing advanced functionalities and modern design principles.
+CinemaFlixGemini is a FlixTv clone integrated with AI features to provide personalized movie recommendations and a secure, responsive user experience. This project highlights my skills in React, Tailwind CSS, Firebase, and AI integration, showcasing advanced functionalities and modern design principles.
 
 ## Features
 
